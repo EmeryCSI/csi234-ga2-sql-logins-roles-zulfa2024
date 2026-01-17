@@ -1,0 +1,38 @@
+ Types of Permissions (SELECT, INSERT, UPDATE, DELETE)
+	SELECT – Allows a user to read data from a table. Users can view rows and columns but cannot change anything.
+ 	INSERT – Allows a user to add new rows into a table.
+ 	UPDATE – Allows a user to modify existing data in specific columns or entire rows.
+ 	DELETE – Allows a user to remove rows from a table.
+These permissions control what actions a user can perform on database objects.
+
+Describe the concept of schema-level permissions vs. table-level permissions.
+Schema-level permissions apply to all objects inside a schema.
+Example:
+Granting permissions on  Schema GA1 gives access to every table in the GA1 schema.
+• 	Table-level permissions apply only to a specific table.
+Example:
+Granting SELECT on GA1.EmployeeData affects only that table, not others in the schema.
+Schema-level permissions are broader, while table-level permissions are more targeted.
+
+Explain how column-level permissions work and why they might be useful.
+Column-level permissions allow you to control access to specific columns within a table.
+For example:
+	Denying SELECT on the Salary column prevents a user from seeing salary data, even if they can view the rest of the table.
+	Granting UPDATE on only FirstName, LastName, Department allows IT to update those fields but not Salary.
+Column-level permissions are useful when certain data is sensitive (like salaries) and should only be visible or editable by specific roles.
+
+Discuss the principle of least privilege and how it's applied in this RBAC setup.
+The principle of least privilege means giving users only the minimum permissions they need to do their job — nothing more.
+In this RBAC setup:
+	HR gets full access because they manage employee records.
+	Sales gets read-only access and cannot see salary data.
+ 	IT can update technical fields but cannot change salary information.
+This reduces the risk of accidental or intentional misuse of data.
+
+Explain the potential security benefits of using roles instead of assigning permissions directly to users.
+Assigning permissions to roles instead of individual users provides several advantages:
+ 	Consistency – Every user in the same job role gets the same permissions.
+	Easier management – You only update the role once instead of updating each user.
+ 	Scalability – New users can be added quickly by assigning them to a role.
+ 	Security – Reduces mistakes and ensures permissions follow organizational rules.
+Roles make permission management cleaner, safer, and easier to maintain.
